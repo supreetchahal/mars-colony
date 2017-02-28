@@ -1,0 +1,32 @@
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    max-height: 600px;
+    color: white;
+}
+.home-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Impact, sans-serif;
+    font-weight: 100;
+}
+
+.enter-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.home-subtitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Impact, sans-serif;
+    font-weight: lighter;
+    bottom: 10px;
+    position: bottom;
+}
