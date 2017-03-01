@@ -26,6 +26,13 @@
     flex-direction: row;
     justify-content: center;
     font-family: Roboto;
+    color: white;
+    text-decoration: none;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 /*Form*/
@@ -67,25 +74,6 @@ font-family: Roboto;
   resize:none;
   height:100px;
   overflow-y:hidden;
-}
-
-#submit{
-  padding:8px;
-  width:100px;
-  border:none;
-  background-color:rgb(255, 144, 116);
-  color:white;
-  font-size:20px;
-  cursor:pointer;
-  opacity:1;
-  float:right;
-  margin-right:20px;
-  transition:opacity 0.5s;
-}
-
-#submit:hover{
-  color:black;
-  background-color:#41f1f4;
 }
 
 input.field {
