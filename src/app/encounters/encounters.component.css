@@ -24,3 +24,8 @@
     font-family: Roboto;
     color:white;
    }
+
+   a {
+    color: white;
+    text-decoration: none;
+}
