@@ -1,25 +1,27 @@
 
- 
- <div class="body-register">
+<div class="body-register">
   <div class="container-register">
     <div class="home-title">
-    <h1>Register</h1>
+      <h1>Register</h1>
     </div>
 
-  <div class="form-container">
-    <div class='signup'>
-     <form>
-       <input type='text' placeholder='Name'  />
-       <input type='text' placeholder='Age'  />
-       <input type='text' placeholder='Select Occupation'  />
-     </form>
-  </div>
-
-  </div>
-
+<div id="form_div">
+    <div id="form">
+        <input type="text" class="field" placeholder="Name" /><br>
+        <input type="email" class="field" placeholder="E-mail" />
+        <input list="Occupations" class="field" placeholder="Occupation">
+            <datalist id="Occupations">
+              <option value="Alien Hunter">
+              <option value="Yoga Instructor">
+              <option value="Dust Farmer">
+              <option value="Front-End Developer">
+            </datalist>
+        <input id="submit" type="submit" value="Send"> 
+    </div>  
+</div>
 
     <div class="home-subtitle">
      <h1>Check in</h1>
     </div>
   </div>
- </div>
+</div>
