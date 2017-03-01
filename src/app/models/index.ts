@@ -19,13 +19,13 @@ export interface Alients {
        description: string;
    }
 
-export interface NewColonist {
+export class NewColonist {
        name: string;
        age: number;
        job_id: Job;
    }
 
-export interface NewEncounter {
+export class NewEncounter {
        date: number;
        atype: string;
        action: string;
