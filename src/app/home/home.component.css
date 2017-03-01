@@ -10,8 +10,9 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100vh;
-    max-height: 550px;
+    max-height: 450px;
     color: white;
+    padding-top: 75px;
 }
 .home-title {
     display: flex;
@@ -30,8 +31,9 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-family: Roboto;
-    
-    
-    
+    font-family: Roboto;   
+}
+
+h1 {
+    font-size: 35px;
 }
