@@ -45,11 +45,16 @@ a {
   font-size: 25px;
 }
 
-input::-webkit-input-placeholder {
-color:#f44259;
-font-size: 20px;
-padding-left: 10px;
-font-family: Roboto;
+::placeholder {
+    color: rgb(213,213,213);
+    font-size: 18px;
+    font-family: Roboto;
+    padding-left: 5px;
+}
+
+select {
+    font-size: 18px;
+    font-family: Roboto;
 }
 
 #form{
@@ -57,14 +62,14 @@ font-family: Roboto;
   margin:0px auto;
 }
 
-.field{
+.field, select{
     height:30px;
   width:300px;
   padding:2px;
   border:none;
   outline:none;
   background:none;
-  color:rgb(213,213,213);
+  color:#41f1f4;;
   font-style:Roboto;
   border-bottom:.5px solid rgb(255, 144, 116);
   margin-bottom:8px; 
@@ -76,8 +81,18 @@ font-family: Roboto;
   overflow-y:hidden;
 }
 
-input.field {
+input.field, select {
     font-size: 20px;
     color:#41f1f4;
     font-family: Roboto;
+}
+
+button {
+    background-color: black;
+    border: 1px solid white;
+    height:25px;
+    width:100px;
+    color: rgb(213,213,213);
+    font-family: Roboto;
+    font-size: 12px;
 }
