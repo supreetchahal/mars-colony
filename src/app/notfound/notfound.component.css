@@ -1,0 +1,25 @@
+.notfound-container {
+    height: 100vh;
+    background-color:white;
+
+  }
+  .container{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 100vh;
+    max-height: 130px;
+    font-family: Roboto;
+    color:black;
+   }
+
+h1 {
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px;
+    padding-top:20px;
+}
+
+p {
+    padding-top: 20px;
+}
