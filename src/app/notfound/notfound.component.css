@@ -9,7 +9,7 @@
     justify-content: center;
     text-align: center;
     height: 100vh;
-    max-height: 130px;
+    max-height: 300px;
     font-family: Roboto;
     color:black;
    }
@@ -17,9 +17,13 @@
 h1 {
     border-bottom: 1px solid gray;
     padding-bottom: 20px;
-    padding-top:20px;
+    padding-top:100px;
 }
 
 p {
     padding-top: 20px;
+    max-width: 300px;
+    margin: 0 auto;
+    font-family: Roboto;
+    font-size: 18px;
 }
