@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewColonist, Job } from '../models';
+import { JOBS_URL, COLONISTS_URL } from '../models/API';
 import { 
   FormGroup,
   FormControl,
@@ -9,6 +10,7 @@ import {
   AbstractControl
 } from '@angular/forms';
 
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -16,35 +18,14 @@ import {
 })
 export class RegisterComponent implements OnInit {
 
-  newColonist: NewColonist;
+
   marsJobs:Job[];
   registerForm: FormGroup;
+  clickedButton: boolean;
 
   constructor() { 
-    // ToDo: Call API, get jobs.
-      this.marsJobs = [
-      {
-        name:"Pentapod",
-        id:1,
-        description:"Soldier"
-      },
-      {
-        name:"Heptapod",
-        id:2,
-        description:"Teacher"
-      },{
-        name:"Octapod",
-        id:3,
-        description:"Farmer"
-      },
-      {
-        name:"Decapod",
-        id:4,
-        description:"King"
-      }
-    ];
+    this.getMarsJobs();
 
-    this.newColonist = new NewColonist('Mack','35','2');
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       age: new FormControl('', [Validators.required, this.acceptAge(18, 50)]),
@@ -59,11 +40,29 @@ export class RegisterComponent implements OnInit {
       }
     }
   }
-  logColonist(){
-    console.log(this.registerForm); 
-  }
+
   ngOnInit() {
   
   }
+  getMarsJobs(){
+    console.log('Getting jobs ...');
+    
+  }
+  postNewColonist(event){
+    event.preventDefault();
+    if(this.registerForm.invalid){
+      // The form is invalid...
+      console.log('Form is ivalid');
+      
+    } else {
+      const name = this.registerForm.get('name').value;
+      const age = this.registerForm.get('age').value;
+      const job_id = this.registerForm.get('job_id').value;
 
+      const newColonist = new NewColonist(name, age, job_id);
+      console.log('The Colonist is ready for MARS:', newColonist);
+      
+    }
+    
+  }
 }

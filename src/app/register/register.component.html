@@ -5,22 +5,25 @@
       <h1>Register</h1>
     </div>
 
-<form [formGroup]="registerForm" [ngClass]="{ invalid:registerForm.invalid }">
+<form [formGroup]="registerForm" 
+      class="register-form"
+      [ngClass]="{ 'submitting': submitting}"
+      (ngSubmit)="postNewColonist($event)">
   <div id="form_div">
       <div id="form">
-          <input type="text" class="field" placeholder="Name" required formControlName="name" name="colonistName"/><br>
-          <input type="number" class="field" placeholder="Age" required formControlName="age" name="colonistAge" />
-                <select required formControlName="job_id" name="job_id">
+          <input type="text" class="field" placeholder="Name" formControlName="name" name="name"/><br>
+          <input type="number" class="field" placeholder="Age" formControlName="age" name="age" />
+                <select formControlName="job_id" name="job_id">
                   <option value="(none)">Select an Occupation</option>
                   <option *ngFor="let job of marsJobs" value="{{ job.id }}">{{ job.name }}</option>
                 </select>
       </div>  
-      <button type="button"(click)="logColonist()">Log Colonist</button>
   </div>
+      <div class="home-subtitle">
+        <button>Submit</button>
+      </div>
 </form>
 
-    <div class="home-subtitle">
-     <a routerLink = "/encounters"><h1>Check in</h1></a>
-    </div>
+
   </div>
 </div>

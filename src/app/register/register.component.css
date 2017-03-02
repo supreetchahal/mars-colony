@@ -28,11 +28,7 @@
     font-family: Roboto;
     color: white;
     text-decoration: none;
-}
-
-a {
-    color: white;
-    text-decoration: none;
+    font-size: 28px;
 }
 
 /*Form*/
