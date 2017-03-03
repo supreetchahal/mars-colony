@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NewColonist, Job } from '../models';
-import { JOBS_URL, COLONISTS_URL } from '../models/API';
 import { 
   FormGroup,
   FormControl,
@@ -10,11 +9,14 @@ import {
   AbstractControl
 } from '@angular/forms';
 
+import { JOBS_URL, COLONISTS_URL } from '../models/API';
+import { ColonistAPIService } from '../apiService/colonist';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [ColonistAPIService]
 })
 export class RegisterComponent implements OnInit {
 
@@ -23,7 +25,7 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   clickedButton: boolean;
 
-  constructor() { 
+  constructor(private ColonistApiService: ColonistAPIService) { 
     this.getMarsJobs();
 
     this.registerForm = new FormGroup({
@@ -60,7 +62,10 @@ export class RegisterComponent implements OnInit {
       const job_id = this.registerForm.get('job_id').value;
 
       const newColonist = new NewColonist(name, age, job_id);
-      console.log('The Colonist is ready for MARS:', newColonist);
+      this.ColonistApiService.saveColonist(newColonist)
+                              .subscribe((result) => {
+                                console.log('Colonist was saved', result);         
+                              });
       
     }
     
