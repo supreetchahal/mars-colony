@@ -11,12 +11,13 @@ import {
 
 import { JOBS_URL, COLONISTS_URL } from '../models/API';
 import { ColonistAPIService } from '../apiService/colonist';
+import { JobsAPIService } from '../apiService/jobs';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [ColonistAPIService]
+  providers: [ColonistAPIService, JobsAPIService]
 })
 export class RegisterComponent implements OnInit {
 
@@ -25,7 +26,9 @@ export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   clickedButton: boolean;
 
-  constructor(private ColonistApiService: ColonistAPIService) { 
+  constructor(
+    private ColonistApiService: ColonistAPIService,
+    private jobsAPIService: JobsAPIService) { 
     this.getMarsJobs();
 
     this.registerForm = new FormGroup({
@@ -47,14 +50,18 @@ export class RegisterComponent implements OnInit {
   
   }
   getMarsJobs(){
-    console.log('Getting jobs ...');
+    this.jobsAPIService.getMarsJobs()
+                        .subscribe((result) => {
+                          console.log('Got mars Jobs!', result);
+                          
+                        });
     
   }
   postNewColonist(event){
     event.preventDefault();
-    if(this.registerForm.invalid){
+    if(!this.registerForm.invalid){
       // The form is invalid...
-      console.log('Form is ivalid');
+      
       
     } else {
       const name = this.registerForm.get('name').value;
@@ -62,7 +69,8 @@ export class RegisterComponent implements OnInit {
       const job_id = this.registerForm.get('job_id').value;
 
       const newColonist = new NewColonist(name, age, job_id);
-      this.ColonistApiService.saveColonist(newColonist)
+
+      this.ColonistApiService.saveColonist( {colonist: newColonist} )
                               .subscribe((result) => {
                                 console.log('Colonist was saved', result);         
                               });
