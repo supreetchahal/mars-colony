@@ -9,6 +9,7 @@
       class="register-form"
       [ngClass]="{ 'submitting': submitting}"
       (ngSubmit)="postNewColonist($event)">
+
   <div id="form_div">
       <div id="form">
           <input type="text" class="field" placeholder="Name" formControlName="name" name="name"/><br>
@@ -19,6 +20,7 @@
                 </select>
       </div>  
   </div>
+  
       <div class="home-subtitle">
         <button>Submit</button>
       </div>

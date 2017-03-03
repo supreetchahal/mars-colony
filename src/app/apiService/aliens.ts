@@ -13,8 +13,10 @@ export class AliensAPIService {
 
     constructor(private http: Http){}
 
-    getMarsJobs():Observable<Alien[]>{
 
+    getAliens():Observable<Alien[]>{
+        return this.http.get(ALIENS_URL)
+                .map((res:Response) => res.json().aliens);
     }
 
 }

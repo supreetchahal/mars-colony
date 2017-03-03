@@ -6,6 +6,7 @@
     <p>See an Alien? Report it!</p>
   </div>
 </div>
+<li *ngFor = "let encounter of encounters" value= "{{ job.id }}">{{ encounters.date}}{{encounters.atype}}{{encounters.action}}
 <div id="footer">
   <div>
     <a routerLink = "/report"><h1>Report <br>Encounter</h1></a>
