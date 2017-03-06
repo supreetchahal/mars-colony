@@ -62,9 +62,9 @@ export class ReportComponent implements OnInit {
       const atype: string = this.reportForm.get('atype').value.toString();
       const action: string = this.reportForm.get('action').value.toString();
       const date: string = this.getDate().toString();
-      const colonist_id: string = localStorage.getItem("colonist_id").toString();
+      const colonist_id: string = localStorage.getItem("colonist_id");
 
-      
+
       const newEncounter: NewEncounter = new NewEncounter(atype, date, action, colonist_id);
       this.encountersApiService.saveNewEncounter({ encounter:newEncounter })
                              .subscribe((result) => {

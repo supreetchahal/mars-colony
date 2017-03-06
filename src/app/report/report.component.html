@@ -1,9 +1,10 @@
-<div class="report-page">
-  <div class="report-page-wrapper">
-    <h1 class="page-header">Report Encounter</h1>
-    <p class="report-encounter-text">Safety on Mars is Your Responsibility</p>
+<div class="body-report">
+  <div class="container-report">
+    <h1 class="home-title"> Report Encounter</h1>
+    <p class="home-subtitle"> Safety on Mars is Your Responsibility</p>
+  </div>
 
-    <div class="form-container">
+    <div class="form_div">
         <form id="form" [formGroup]="reportForm" [ngClass]="{'flashing-input':submitted}">
 
           <select formControlName="atype" name="atype">
@@ -11,11 +12,10 @@
             <option *ngFor="let alien of aliens" value="{{alien.type}}">{{ alien.type }}</option>
           </select>
 
-          <textarea class="alien-type-textarea" name="alien-type-form" formControlName="action" placeholder="Action taken"></textarea>
+          <textarea class="textarea" name="alien-type-form" formControlName="action" placeholder="Action taken"></textarea>
           
-          <button (click)="postNewEncounter($event)" type="submit" class="submit-report-button">Submit Report</button> 
+          <button (click)="postNewEncounter($event)"  class="button">Submit Report</button> 
         </form>
 
     </div>
-  </div>
 </div>

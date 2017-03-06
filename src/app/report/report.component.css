@@ -1,119 +1,75 @@
-.report-page {
+.body-report{
+    display: flex;
+    flex-direction: column;
+    justify-content: center space-between;
+    height:100vh;
+    background-color: black;
+}
+.container-report{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 100vh;
-    width: 100vw;
-    background: black;
+    max-height: 50px;
     color: white;
-
-    .report-page-wrapper {
-        height: 100%;
-        width: 100%;
-        padding-top: 2.35rem;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: flex-start;
-        align-items: center;
-
-        .page-header {
-            font-size: 2.35rem;
-            margin-bottom: 0.1rem;
-        }
-
-        .report-encounter-text {
-            font-size: 1.15rem;
-        }
-
-        .form-container {
-            
-            height: 100%;
-            width: 95%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: center;
-
-             form {
-                height: 100%;
-                width: 100%;
-                margin: 0.5rem auto 4rem;
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: flex-start;
-                align-items: center;
-
-                select {
-                    height: 38px;
-                    width: 100%;
-                    margin-top: 1.5rem;
-                    margin-bottom: 1.15rem;
-                    padding-left: 0.5rem;
-                    border: 0;
-                    border-bottom: 1.5px solid white;
-                    border-radius: 0;
-                    font-size: 1.15rem;
-                    background-color: black;
-                    color: #ED4343;
-                    appearance: none;
-                    border-radius: 0px;
-                    -webkit-appearance: none;
-                    -webkit-border-radius: 0px;
-                }
-
-                select.ng-dirty {
-                    color: white;
-                }
-
-                textarea {
-                    box-sizing: border-box;
-                    height: 195px;
-                    width: 100%;
-                    padding: 0.5rem 0.5rem;
-                    border: none;
-                    font-size: 1rem;
-                    color: #ED4343;
-
-                }
-
-                textarea.ng-dirty {
-                    color: black;
-                    font-weight: 500;
-                }
-            }
-        }
-
-        .submit-report-button {
-            height: auto;
-            min-height: 110px;
-            width: 40%;
-            margin-top: 1.5rem;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            background: black;
-            font-size: 2.35rem;
-            font-weight: 100;
-            text-align: center;
-
-            &:hover {
-                cursor: pointer;
-            }
-        }
-    }
+    padding-top: 50px;
 }
 
-form.ng-dirty.ng-valid button {
-    animation: button-flasher 1.55s linear infinite 0.2s;
+.home-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Roboto;
 }
 
-@keyframes button-flasher {
-    0% {
-        color: #FDFFFA;
-        box-shadow: inset 0px 0px 55px 0px #094259;
-    }
+.home-subtitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: Roboto;
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
 
-    85% {
-        box-shadow: inset 0px 0px 75px 50px black;
-    }
-    100% {
-        color: #ED4343;
-    }
+.form_div{
+  width:300px;
+  height:300px;
+  margin:50px auto;
+  background-color:none;
+  font-size: 25px;
+}
+
+#form{
+  width:300px;
+  margin:0px auto;
+}
+
+.textarea {
+    width:300px;
+  height:300px;
+  background-color:none;
+  font-size: 25px;
+}
+
+button {
+    background-color: white;
+    height:25px;
+    width:100px;
+    color:black;
+    font-family: Roboto;
+    font-size: 16px;
+}
+
+#form, select {
+    height:30px;
+  width:300px;
+  padding:2px;
+  border:none;
+  outline:none;
+  background:none;
+  color:white;
+  font-size: 16px;
+  font-style:Roboto;
+  margin-bottom:8px; 
 }
