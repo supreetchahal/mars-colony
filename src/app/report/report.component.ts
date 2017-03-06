@@ -43,13 +43,14 @@ export class ReportComponent implements OnInit {
 
   getDate() {
     const date = new Date;
-    var yy = date.getFullYear() + 1; // getMonth() is zero-based
+    var yy = date.getFullYear() + 1; 
     var mm = date.getMonth() + 1;
     var dt = date.getDate();
 
     return `${yy}-${mm}-${dt}`.toString();
  
   }
+
 
   postNewEncounter(event) {
     event.preventDefault();
@@ -62,11 +63,16 @@ export class ReportComponent implements OnInit {
       const atype: string = this.reportForm.get('atype').value.toString();
       const action: string = this.reportForm.get('action').value.toString();
       const date: string = this.getDate().toString();
-      const colonist_id: string = localStorage.getItem("colonist_id");
+      const colonist_id: string = localStorage.getItem("colonistID");
 
-
-      const newEncounter: NewEncounter = new NewEncounter(atype, date, action, colonist_id);
-      this.encountersApiService.saveNewEncounter({ encounter:newEncounter })
+      this.newEncounter = new NewEncounter(atype, date, action, colonist_id);
+      console.log(this.newEncounter);
+      
+      
+      const encounterPostRequest = { encounter: this.newEncounter };
+      console.log(encounterPostRequest);
+      
+      this.encountersApiService.saveNewEncounter(encounterPostRequest)
                              .subscribe((result) => {
                                this.router.navigate(['encounters'])
                              });

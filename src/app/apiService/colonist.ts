@@ -20,7 +20,7 @@ export class ColonistAPIService {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
         return this.http.post(COLONIST_URL, newColonist, { headers })
-                        .map((res: Response) => res.json().encounter);
+                        .map((res: Response) => res.json().colonist);
     }
 }
 

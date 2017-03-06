@@ -79,6 +79,9 @@ export class RegisterComponent implements OnInit {
 
       this.ColonistApiService.saveColonist( {colonist: newColonist} )
                               .subscribe((result) => {
+                                console.log(result);
+                                
+                                localStorage.setItem('colonistID', result.id.toString());
                                 this.router.navigate(['encounters'])        
                               });
       
