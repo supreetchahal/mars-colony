@@ -1,32 +1,21 @@
-<div class="report-container">
-  <div class="container">
-    <div>
-      <h1>Report Encounters</h1>
-    </div>
-    <div>
-      <p>Safety on Mars is your responsibility</p>
-    </div>
-  </div>
+<div class="report-page">
+  <div class="report-page-wrapper">
+    <h1 class="page-header">Report Encounter</h1>
+    <p class="report-encounter-text">Safety on Mars is Your Responsibility</p>
 
+    <div class="form-container">
+        <form id="form" [formGroup]="reportForm" [ngClass]="{'flashing-input':submitted}">
 
-  <div class="report-button">
-    <select>
-        <option value="volvo">Select Alien</option>
-        <option value="saab">Alien 1</option>
-        <option value="mercedes">Alien 2</option>
-        <option value="audi">Alien 3</option>
-    </select>
-  </div>
-  
-  <div class="report-form">
-    <form>
-          <input id="action" type="text" placeholder="Take Action">
-    </form>
-  </div>
+          <select formControlName="atype" name="atype">
+            <option value="none" disabled selected>Select alien type</option>
+            <option *ngFor="let alien of aliens" value="{{alien.type}}">{{ alien.type }}</option>
+          </select>
 
-  <div id="footer">
-    <div>
-      <a routerLink = "/report"><h1>Submit Report</h1></a>
+          <textarea class="alien-type-textarea" name="alien-type-form" formControlName="action" placeholder="Action taken"></textarea>
+          
+          <button (click)="postNewEncounter($event)" type="submit" class="submit-report-button">Submit Report</button> 
+        </form>
+
     </div>
   </div>
 </div>

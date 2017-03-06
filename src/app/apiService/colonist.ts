@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
 import { Colonist, NewColonist } from '../models';
-import { COLONISTS_URL } from '../models/API';
+import { COLONIST_URL } from '../models/API';
 
 interface ColonistPostRequest {
     colonist: NewColonist;
@@ -19,7 +19,7 @@ export class ColonistAPIService {
     saveColonist(newColonist: ColonistPostRequest): Observable<Colonist> {
         const headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post(COLONISTS_URL, newColonist, { headers })
+        return this.http.post(COLONIST_URL, newColonist, { headers })
                         .map((res: Response) => res.json().encounter);
     }
 }

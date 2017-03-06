@@ -9,9 +9,11 @@ import {
   AbstractControl
 } from '@angular/forms';
 
-import { JOBS_URL, COLONISTS_URL } from '../models/API';
+import { JOBS_URL, COLONIST_URL } from '../models/API';
 import { ColonistAPIService } from '../apiService/colonist';
 import { JobsAPIService } from '../apiService/jobs';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-register',
@@ -28,8 +30,11 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private ColonistApiService: ColonistAPIService,
+    private router: Router,
     private jobsAPIService: JobsAPIService) { 
     this.getMarsJobs();
+
+    this.clickedButton = false;
 
     this.registerForm = new FormGroup({
       name: new FormControl('', [Validators.required, Validators.maxLength(20)]),
@@ -57,8 +62,11 @@ export class RegisterComponent implements OnInit {
     
   }
   postNewColonist(event){
+
+    
     event.preventDefault();
-    if(!this.registerForm.invalid){
+    this.clickedButton = true;
+    if(this.registerForm.invalid){
       // The form is invalid...
       
       
@@ -71,7 +79,7 @@ export class RegisterComponent implements OnInit {
 
       this.ColonistApiService.saveColonist( {colonist: newColonist} )
                               .subscribe((result) => {
-                                console.log('Colonist was saved', result);         
+                                this.router.navigate(['encounters'])        
                               });
       
     }

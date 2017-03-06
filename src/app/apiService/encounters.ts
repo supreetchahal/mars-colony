@@ -4,7 +4,7 @@ import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { NewEncounter } from '../models';
+import { NewEncounter, Encounter } from '../models';
 import { ENCOUNTERS_URL } from '../models/API';
 
 interface EncounterPostRequest {
@@ -17,10 +17,17 @@ export class EncountersAPIService {
 
     constructor(private http: Http){}
 
-    getMarsJobs():Observable<Encounter[]>{
+    getEncounters():Observable<Encounter[]>{
+        return this.http.get(ENCOUNTERS_URL)
+                .map((res:Response) => res.json().encounters);
 
     }
 
-    saveNewEncounter(newEncounter: EncounterPostRequest) : Observable<Encounter>
-
+    saveNewEncounter(NewEncounter: EncounterPostRequest): Observable<Encounter>{
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+        return this.http.post(ENCOUNTERS_URL, NewEncounter, {headers})
+            .map((res:Response) => res.json().encounters);
+    }
 }
+
